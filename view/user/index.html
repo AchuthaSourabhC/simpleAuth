@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>D-Wars</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <script src="{{ host }}/public/js/bootstrap.js"></script>
+        <script src="{{ host }}/public/js/jquery1.9.1.js"></script>
+		<link rel="stylesheet" href="{{ host }}/public/css/jquery_ui.css">
+		<link rel="stylesheet" href="{{ host }}/public/css/bootstrap.css">
+		
+          
+            <link rel="stylesheet" href="{{ host }}/public/css/main.css">
+		{% block head %}
+      
+
+        {% endblock %}
+
+	</head>
+
+	<body>
+        <div class="nav" data-role="header">
+            {% block header %}
+            <div class="title">simpleAuth ()</div>
+            
+			<div class="nav-wrap" >
+				<ul>
+                    <li>{</li>
+					<li><a href="{{host}}/index/">home</li>
+					<li><a href="{{host}}/index/about">about</li>
+					<li><a href="{{host}}/user/register">register</a></li>
+                    {% if loggedIn == 1 %}
+					<li><a href="{{host}}/user/logout">logout</a></li>
+                    {% else %}
+                    <li><a href="{{host}}/user/login">login</a></li>
+                    {% endif %}
+                    <li>}</li>
+				</ul>
+			</div>
+            {% endblock %}
+            
+        </div>
+        
+        <div class="page-wrap" data-role="page">
+            <div class="post-wrap">
+                {% block content %}
+                Welcome to simpleAuth<br>Use the links on Navigation bar above to try it's features
+                
+                {% endblock %}
+            </div>
+         
+            <div class="footer-wrap">
+                 <script>
+                $(document).ready(function() {
+                    $('.page-wrap').css('top',( $('.nav').outerHeight()+10));
+                });
+            </script>
+                {% block footer %}
+                
+                {% endblock %}
+            </div>
+         
+        </div>
+	</body>
+</html>

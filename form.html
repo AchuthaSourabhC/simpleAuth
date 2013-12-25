@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <!-- Load jQuery and the validate plugin -->
+  <meta charset="utf-8">
+  <script src="public/js/jquery1.9.1.js"></script>
+  <script src="public/js/jquery_validate.js"></script>
+  <script src="public/js/jquery_ui.js"></script>
+
+  <link rel="stylesheet" href="public/css/jquery_ui.css">
+  <!-- jQuery Form Validation code -->
+  <script>
+  
+  // When the browser is ready...
+  $(function() {
+  
+    // Setup form validation on the #register-form element
+    $("#register-form").validate({
+    
+        // Specify the validation rules
+        rules: {
+            username: "required",
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6
+            },
+
+            datepicker: "required"
+        },
+        
+        // Specify the validation error messages
+        messages: {
+            username: "Please enter your unique username",
+            name: "Please enter your Actual name",
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            email: "Please enter a valid email address",
+            datepicker: "Please select date of birth"
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+  
+  </script>
+  <script>
+    $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    });
+  </script>
+</head>
+<body>
+  <h1>Register here</h1>
+
+  <!--  The form that will be parsed by jQuery before submit  -->
+  <form action="" method="post" id="register-form" novalidate="novalidate">
+  
+    <div class="label">First Name</div><input type="text" id="username" name="username" /><br />
+    <div class="label">Last Name</div><input type="text" id="name" name="name" /><br />
+    <div class="label">Email</div><input type="text" id="email" name="email" /><br />
+    <div class="label">Password</div><input type="password" id="password" name="password" /><br />
+    <div class="label">Date of Birth</div><input type="text" id="datepicker" name="datepicker" ><br />
+    <div ><input type="submit" name="submit" value="Submit" /></div>
+    
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends "user/index.html" %}
+
+{% block head %}
+  {% autoescape false %}
+  <!-- Load jQuery and the validate plugin -->
+  <meta charset="utf-8">
+  <script src="{{ host }}/public/js/jquery1.9.1.js"></script>
+  <script src="{{ host }}/public/js/jquery_validate.js"></script>
+  <!-- jQuery Form Validation code -->
+  
+  {% endautoescape %}
+
+  <script>
+  // When the browser is ready...
+  $(function() {
+  
+    // Setup form validation on the #register-form element
+    $("#forgot-form").validate({
+    
+        // Specify the validation rules
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+        },
+        
+        // Specify the validation error messages
+        messages: {
+            email: "Please enter a valid email address", 
+        },      
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+  });
+  
+  </script>
+{% endblock %}
+
+{% block content %}
+{% if error == 1 %}
+<div class="error">Sorry reset Failed.PLease Check and enter valid email.</div>
+{% endif %}
+<form action="{{ host }}/resetuser/sendPass" method="post" id="forgot-form" novalidate="novalidate">
+	<div class="label">email</div><input type="text" id="email" name="email" /><br />
+   <div ><input type="submit" name="submit" value="Submit" /></div>
+</form>
+{% endblock %}

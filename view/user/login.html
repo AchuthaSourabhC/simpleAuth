@@ -1,0 +1,67 @@
+{% extends "user/index.html" %}
+
+{% block head %}
+  {% autoescape false %}
+  <!-- Load jQuery and the validate plugin -->
+  <meta charset="utf-8">
+  <script src="{{ host }}/public/js/jquery1.9.1.js"></script>
+  <script src="{{ host }}/public/js/jquery_validate.js"></script>
+  <!-- jQuery Form Validation code -->
+  
+  {% endautoescape %}
+
+  <script>
+  // When the browser is ready...
+  $(function() {
+  
+    // Setup form validation on the #register-form element
+    $("#login-form").validate({
+    
+        // Specify the validation rules
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6
+            },
+
+        },
+        
+        // Specify the validation error messages
+        messages: {
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 6 characters long"
+            },
+            email: "Please enter a valid email address", 
+        },      
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+  });
+  
+  </script>
+{% endblock %}
+
+{% block content %}
+<div class="form-wrap">
+    <div class="form-title">Login Here</div>
+    <form action="{{ host }}/user/check" method="post" id="login-form" novalidate="novalidate">
+        <div class="error">
+        {% if error == 1 %}
+          {{ message }}
+        {% endif %}
+        </div>
+        <div class="label">Email</div><input type="text" id="email" name="email" /><br />
+        <div class="label">Password</div><input type="password" id="password" name="password" /><br />
+
+        <div ><input type="submit" name="submit" value="Submit" class="submit-reg" /></div>
+        
+    </form>
+</div>
+
+{% endblock %}
