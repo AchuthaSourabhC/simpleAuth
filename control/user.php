@@ -23,10 +23,13 @@
 			$res = $this->model->login($creds);
 			
 			if($res['status'] > 0){
-				Session::init();
+				//session_start();
 				Session::set("loggedIn", true);
 				Session::set("username", $res['username']);
 				Session::set("user_id", $res['user_id']);
+				//echo Session::get("username");
+				//Session::set("user_data", $res);
+				
 				Redirect::to('dashboard/index', true, 302);
 	
 			}else{

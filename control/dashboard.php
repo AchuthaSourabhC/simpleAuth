@@ -18,7 +18,7 @@
 
 		public function index(){
             
-		
+			//echo Session::get('username');
 			echo $this->twig->render('dashboard/index.html', array('host' => HOST, 'username' => Session::get('username')));
 		}
 

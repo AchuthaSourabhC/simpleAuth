@@ -7,11 +7,11 @@
 		}
 
 		public function index(){
-			echo $this->twig->render('home/index.html', array());
+			echo $this->twig->render('home/index.html', array('host' => HOST));
 		}
 
 		public function about(){
-			echo $this->twig->render('home/about.html', array());
+			echo $this->twig->render('home/about.html', array('host' => HOST));
 		}
 
 	}

@@ -1,13 +1,18 @@
 {% extends "user/index.html" %}
 
+
+
 {% block head %}
 
 {% endblock %}
 
+{% block nav %}
+	 <li><a href="{{host}}/user/logout">logout</a></li>
+{% endblock %}
 
 {% block content %}
 
-Welcome you are logged in !
+Welcome {{ username}} are logged in !
 
 {% endblock %}
 

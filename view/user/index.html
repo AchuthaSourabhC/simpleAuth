@@ -26,14 +26,12 @@
 			<div class="nav-wrap" >
 				<ul>
                     <li>{</li>
+					 {% block nav %}
 					<li><a href="{{host}}/index/">home</li>
 					<li><a href="{{host}}/index/about">about</li>
 					<li><a href="{{host}}/user/register">register</a></li>
-                    {% if loggedIn == 1 %}
-					<li><a href="{{host}}/user/logout">logout</a></li>
-                    {% else %}
                     <li><a href="{{host}}/user/login">login</a></li>
-                    {% endif %}
+                    {% endblock %}
                     <li>}</li>
 				</ul>
 			</div>

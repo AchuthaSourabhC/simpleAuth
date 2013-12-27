@@ -27,7 +27,7 @@ class User_Model extends Model {
 		$count = $stmt->rowCount();
 		if($count){
 			$rows = $stmt->fetchAll();
-			$resp = array( "status" => 1, "username" => $rows[0]['username'], "id" =>  $rows[0]['user_id']);
+			$resp = array( "status" => 1, "username" => $rows[0]['username'], "user_id" =>  $rows[0]['id']);
 			return $resp;
 		}else{
 			$resp = array( "status" => 0);

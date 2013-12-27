@@ -12,6 +12,7 @@ class __TwigTemplate_9d0e02e298fa9d4c55eb0b9457d78c62ff48a6d79039e3523c3ea80c2ac
         $this->blocks = array(
             'head' => array($this, 'block_head'),
             'header' => array($this, 'block_header'),
+            'nav' => array($this, 'block_nav'),
             'content' => array($this, 'block_content'),
             'footer' => array($this, 'block_footer'),
         );
@@ -60,16 +61,16 @@ class __TwigTemplate_9d0e02e298fa9d4c55eb0b9457d78c62ff48a6d79039e3523c3ea80c2ac
             ";
         // line 23
         $this->displayBlock('header', $context, $blocks);
-        // line 41
+        // line 39
         echo "            
         </div>
         
         <div class=\"page-wrap\" data-role=\"page\">
             <div class=\"post-wrap\">
                 ";
-        // line 46
+        // line 44
         $this->displayBlock('content', $context, $blocks);
-        // line 50
+        // line 48
         echo "            </div>
          
             <div class=\"footer-wrap\">
@@ -79,9 +80,9 @@ class __TwigTemplate_9d0e02e298fa9d4c55eb0b9457d78c62ff48a6d79039e3523c3ea80c2ac
                 });
             </script>
                 ";
-        // line 58
+        // line 56
         $this->displayBlock('footer', $context, $blocks);
-        // line 61
+        // line 59
         echo "            </div>
          
         </div>
@@ -107,53 +108,51 @@ class __TwigTemplate_9d0e02e298fa9d4c55eb0b9457d78c62ff48a6d79039e3523c3ea80c2ac
 \t\t\t<div class=\"nav-wrap\" >
 \t\t\t\t<ul>
                     <li>{</li>
-\t\t\t\t\t<li><a href=\"";
+\t\t\t\t\t ";
         // line 29
-        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
-        echo "/index/\">home</li>
-\t\t\t\t\t<li><a href=\"";
-        // line 30
-        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
-        echo "/index/about\">about</li>
-\t\t\t\t\t<li><a href=\"";
-        // line 31
-        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
-        echo "/user/register\">register</a></li>
-                    ";
-        // line 32
-        if (((isset($context["loggedIn"]) ? $context["loggedIn"] : null) == 1)) {
-            // line 33
-            echo "\t\t\t\t\t<li><a href=\"";
-            echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
-            echo "/user/logout\">logout</a></li>
-                    ";
-        } else {
-            // line 35
-            echo "                    <li><a href=\"";
-            echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
-            echo "/user/login\">login</a></li>
-                    ";
-        }
-        // line 37
+        $this->displayBlock('nav', $context, $blocks);
+        // line 35
         echo "                    <li>}</li>
 \t\t\t\t</ul>
 \t\t\t</div>
             ";
     }
 
-    // line 46
+    // line 29
+    public function block_nav($context, array $blocks = array())
+    {
+        // line 30
+        echo "\t\t\t\t\t<li><a href=\"";
+        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
+        echo "/index/\">home</li>
+\t\t\t\t\t<li><a href=\"";
+        // line 31
+        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
+        echo "/index/about\">about</li>
+\t\t\t\t\t<li><a href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
+        echo "/user/register\">register</a></li>
+                    <li><a href=\"";
+        // line 33
+        echo twig_escape_filter($this->env, (isset($context["host"]) ? $context["host"] : null), "html", null, true);
+        echo "/user/login\">login</a></li>
+                    ";
+    }
+
+    // line 44
     public function block_content($context, array $blocks = array())
     {
-        // line 47
+        // line 45
         echo "                Welcome to simpleAuth<br>Use the links on Navigation bar above to try it's features
                 
                 ";
     }
 
-    // line 58
+    // line 56
     public function block_footer($context, array $blocks = array())
     {
-        // line 59
+        // line 57
         echo "                
                 ";
     }
@@ -170,6 +169,6 @@ class __TwigTemplate_9d0e02e298fa9d4c55eb0b9457d78c62ff48a6d79039e3523c3ea80c2ac
 
     public function getDebugInfo()
     {
-        return array (  157 => 59,  154 => 58,  148 => 47,  145 => 46,  138 => 37,  132 => 35,  126 => 33,  124 => 32,  120 => 31,  116 => 30,  112 => 29,  105 => 24,  102 => 23,  96 => 15,  93 => 14,  85 => 61,  83 => 58,  73 => 50,  71 => 46,  64 => 41,  62 => 23,  55 => 18,  53 => 14,  49 => 13,  43 => 10,  39 => 9,  35 => 8,  31 => 7,  23 => 1,);
+        return array (  156 => 57,  153 => 56,  147 => 45,  144 => 44,  138 => 33,  134 => 32,  130 => 31,  125 => 30,  122 => 29,  115 => 35,  113 => 29,  106 => 24,  103 => 23,  97 => 15,  94 => 14,  86 => 59,  84 => 56,  74 => 48,  72 => 44,  65 => 39,  63 => 23,  56 => 18,  54 => 14,  50 => 13,  44 => 10,  40 => 9,  36 => 8,  32 => 7,  24 => 1,);
     }
 }
